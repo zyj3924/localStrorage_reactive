@@ -1,19 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div>Counter: {{ counter }}</div>
+    <div>Counter is {{ even ? 'even' : 'odd' }}</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data: function (){
+    return {
+      counter: localStorage.getItem("counter")
+    }
+  },
+  computed: {
+    even() {
+      return this.counter % 2 == 0;
+    }
+  },
+  created () {
+    localStorage.setItem("counter", 1)
+    setInterval(() => {
+      const counter = localStorage.getItem("counter");
+      localStorage.setItem("counter", +counter + 1);
+    }, 1000);
   }
-}
+};
 </script>
 
 <style>
