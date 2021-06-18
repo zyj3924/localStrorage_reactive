@@ -1,5 +1,5 @@
 # 如何在 Vue 中使 localStorage 具有响应式
-[aritcle link](https://zhuangyj.com/article/8)
+详情可查看文章：[文章地址](https://zhuangyj.com/article/8)
 ## Project setup
 ```
 npm install
